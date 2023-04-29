@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="./style.css" scope >
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app">
+    </div>
+  </body>
+</html>
+<script  >
+
+  let stars = document.getElementById('stars');
+  let moon = document.getElementById('moon');
+  let mtb = document.getElementById('mtb');
+  let text = document.getElementById('text');
+  let mtf = document.getElementById('mtf');
+  let RKR = document.getElementById('RKR');
+  let line = document.getElementById('line');
+  let logo3 = document.getElementById('logo3');
+  let vision1 = document.getElementById('vision1');
+  window.addEventListener('scroll',function(){
+    let value = window.scrollY;
+    let valueX = window.scrollX;
+    mtb.style.right = value + 'px';
+    moon.style.top = value + 'px';
+    mtf.style.left = value * 0.5 + 'px';
+    RKR.style.left = valueX - 1 + 'px';
+    logo3.style.right = value *0.5+ 'px';
+    vision1.style.right = value *0.5+ 'px';
+    
+  } )
+
+
+  document.addEventListener("mousemove" , parallax);
+  function parallax(e){
+    this.querySelectorAll('.layer').forEach(function(move) {
+      
+      var moveing_value = move.getAttribute('data-speed');
+      var x = (e.clientX * moveing_value) / 500;
+      var y = (e.clientY * moveing_value) / 500;
+
+      move.style.transform = "translateX(" + x +"px) translateY(" + y +"px)";
+
+      
+    });
+  }
+
+
+
+
+
+
+
+  
+</script>
